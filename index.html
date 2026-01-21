@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SANKESH ANIL NAGRARE - Property Advisor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-color: #1a5276;
+            --secondary-color: #d4ac0d;
+            --light-color: #f8f9fa;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-placeholder {
+            width: 80px;
+            height: 80px;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            border: 1px dashed #ccc;
+            font-size: 12px;
+            text-align: center;
+            padding: 5px;
+        }
+
+        .logo-placeholder img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .logo-text p {
+            font-size: 0.9rem;
+            color: var(--dark-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        nav ul li a.active {
+            color: var(--primary-color);
+        }
+
+        nav ul li a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 82, 118, 0.85), rgba(26, 82, 118, 0.9)), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+            padding: 12px 28px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #e6b800;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Services Section */
+        .section-title {
+            text-align: center;
+            margin: 60px 0 40px;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 25px;
+            text-align: center;
+            font-size: 2.5rem;
+        }
+
+        .service-content {
+            padding: 25px;
+        }
+
+        .service-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        /* About Section */
+        .about {
+            background-color: white;
+            padding: 60px 0;
+            margin-bottom: 60px;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+        }
+
+        .credentials {
+            background-color: var(--light-color);
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 5px solid var(--secondary-color);
+        }
+
+        .credentials h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .credentials ul {
+            list-style-position: inside;
+        }
+
+        .credentials li {
+            margin-bottom: 8px;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--light-color);
+            padding: 60px 0;
+            margin-bottom: 60px;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .contact-details {
+            margin-top: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .contact-icon {
+            background-color: var(--primary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo h3 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .footer-links h4,
+        .footer-contact h4 {
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* Page Content Styles */
+        .page-content {
+            background-color: white;
+            padding: 60px 0;
+            min-height: 60vh;
+        }
+
+        .page-content h1 {
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            font-size: 2.2rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .page-content h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+
+        .content-box {
+            background-color: var(--light-color);
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .content-box h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+        }
+
+        .content-box p {
+            margin-bottom: 15px;
+        }
+
+        .content-box ul, .content-box ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .content-box li {
+            margin-bottom: 8px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                box-shadow: var(--shadow);
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            nav ul li {
+                margin: 0 0 15px 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo-container">
+                <div class="logo-placeholder">
+                    <!-- Logo will be added here -->
+                    <div>Your Logo Here</div>
+                </div>
+                <div class="logo-text">
+                    <h1>SANKESH ANIL NAGRARE</h1>
+                    <p>Professional Property Advisor</p>
+                </div>
+            </div>
+            <div class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="container">
+                <h2>Your Trusted Property Advisor in Bengaluru</h2>
+                <p>With extensive knowledge of Bangalore's real estate market and a commitment to client satisfaction, I provide personalized property advisory services for residential and commercial properties.</p>
+                <a href="#contact" class="btn">Get Free Consultation</a>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="container" id="services">
+            <div class="section-title">
+                <h2>My Services</h2>
+                <p>Comprehensive property advisory solutions tailored to your needs</p>
+            </div>
+            <div class="services">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Residential Property Advisory</h3>
+                        <p>Expert guidance for buying, selling, or renting residential properties in Bangalore. From apartments to independent houses, I help you make informed decisions.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Commercial Property Advisory</h3>
+                        <p>Strategic advice for commercial real estate investments including offices, retail spaces, and warehouses to maximize your returns.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Investment Consultation</h3>
+                        <p>Identify high-potential real estate investment opportunities with detailed market analysis and future growth projections.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about" id="about">
+            <div class="container">
+                <div class="section-title">
+                    <h2>About Me</h2>
+                    <p>Professional property advisory with a personal touch</p>
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>SANKESH ANIL NAGRARE</h3>
+                        <p>I am a dedicated property advisor based in Bengaluru with extensive knowledge of the local real estate market. My approach combines market expertise with personalized service to help clients make the best property decisions.</p>
+                        <p>With a focus on transparency and integrity, I strive to build long-term relationships with clients by providing reliable advice and comprehensive support throughout the property transaction process.</p>
+                        <p>Whether you're a first-time homebuyer, a seasoned investor, or looking to sell your property, I offer tailored solutions to meet your specific needs and objectives.</p>
+                        
+                        <div class="credentials">
+                            <h4>Professional Credentials</h4>
+                            <ul>
+                                <li>Registered GST Practitioner (GSTIN: 29ALFPN6166L1ZG)</li>
+                                <li>Proprietorship Business established in 2020</li>
+                                <li>Extensive knowledge of Bangalore property market</li>
+                                <li>Verified address and business credentials</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="about-text">
+                        <h3>Business Address</h3>
+                        <p><strong>Principal Place of Business:</strong></p>
+                        <p>NO 501, 2CW, WISDOM TREE COMMUNITY,<br>
+                        K NARAYAPURA, CROSS, NEAR KRISTU JAYANTI COLLEGE,<br>
+                        HENNUR ROAD, KOTHANUR,<br>
+                        Bengaluru (Bangalore) Urban, Karnataka, 560077</p>
+                        
+                        <h3 style="margin-top: 30px;">Contact Information</h3>
+                        <p><strong>Mobile:</strong> +91 8329971463</p>
+                        <p><strong>Email:</strong> sankeshnagrare92@gmail.com</p>
+                        
+                        <div class="credentials" style="margin-top: 30px;">
+                            <h4>Why Choose Me?</h4>
+                            <ul>
+                                <li>Personalized attention to every client</li>
+                                <li>In-depth market knowledge</li>
+                                <li>Transparent and ethical practices</li>
+                                <li>End-to-end transaction support</li>
+                                <li>Registered and verified professional</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact" id="contact">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Contact Me</h2>
+                    <p>Get in touch for a free property consultation</p>
+                </div>
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h3>Let's Discuss Your Property Needs</h3>
+                        <p>I'm here to help you navigate the real estate market with confidence. Whether you're buying, selling, or investing, I provide the expert guidance you need.</p>
+                        <p>Reach out to me for a personalized consultation at no cost or obligation.</p>
+                        
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div>
+                                    <h4>Phone</h4>
+                                    <p>+91 8329971463</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4>Email</h4>
+                                    <p>sankeshnagrare92@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <h4>Business Address</h4>
+                                    <p>K Narayapura, Hennur Road, Kothanur, Bengaluru - 560077</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <input type="text" placeholder="Your Name" required>
+                            <input type="tel" placeholder="Your Phone Number" required>
+                            <input type="email" placeholder="Your Email" required>
+                            <select style="width: 100%; padding: 12px; margin-bottom: 20px; border: 1px solid #ddd; border-radius: 5px; font-family: inherit;">
+                                <option value="" disabled selected>Select Service Required</option>
+                                <option value="residential">Residential Property</option>
+                                <option value="commercial">Commercial Property</option>
+                                <option value="investment">Investment Consultation</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <textarea placeholder="Your Message" required></textarea>
+                            <button type="submit" class="btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-logo">
+                <h3>SANKESH ANIL NAGRARE</h3>
+                <p>Professional Property Advisor</p>
+                <p style="margin-top: 15px;">GSTIN: 29ALFPN6166L1ZG</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Info</h4>
+                <p><i class="fas fa-phone-alt" style="margin-right: 10px;"></i> +91 8329971463</p>
+                <p><i class="fas fa-envelope" style="margin-right: 10px;"></i> sankeshnagrare92@gmail.com</p>
+                <p><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> Kothanur, Bengaluru - 560077</p>
+            </div>
+        </div>
+        <div class="container copyright">
+            <p>&copy; 2023 SANKESH ANIL NAGRARE - Property Advisor. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Privacy Policy Page (Hidden by default) -->
+    <div id="privacyPage" class="page-content" style="display: none;">
+        <div class="container">
+            <h1>Privacy Policy</h1>
+            <div class="content-box">
+                <h2>Introduction</h2>
+                <p>This Privacy Policy describes how SANKESH ANIL NAGRARE ("we", "our", or "us") collects, uses, and shares your personal information when you use our website and services.</p>
+            </div>
+            
+            <div class="content-box">
+                <h2>Information We Collect</h2>
+                <p>We may collect the following types of information:</p>
+                <ul>
+                    <li><strong>Personal Information:</strong> Name, email address, phone number, and other contact details when you submit our contact form.</li>
+                    <li><strong>Property Information:</strong> Details about properties you're interested in buying, selling, or renting.</li>
+                    <li><strong>Communication Data:</strong> Records of our correspondence with you.</li>
+                    <li><strong>Website Usage Data:</strong> Information about how you use our website, collected through cookies and similar technologies.</li>
+                </ul>
+            </div>
+            
+            <div class="content-box">
+                <h2>How We Use Your Information</h2>
+                <p>We use the information we collect for the following purposes:</p>
+                <ul>
+                    <li>To respond to your inquiries and provide property advisory services</li>
+                    <li>To send you relevant property listings and market information</li>
+                    <li>To improve our website and services</li>
+                    <li>To comply with legal obligations</li>
+                    <li>To communicate with you about our services</li>
+                </ul>
+            </div>
+            
+            <div class="content-box">
+                <h2>Data Security</h2>
+                <p>We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.</p>
+            </div>
+            
+            <div class="content-box">
+                <h2>Third-Party Disclosures</h2>
+                <p>We do not sell, trade, or otherwise transfer your personal information to outside parties except when necessary to provide our services (e.g., sharing property details with potential buyers/sellers with your consent) or when required by law.</p>
+            </div>
+            
+            <div class="content-box">
+                <h2>Your Rights</h2>
+                <p>You have the right to:</p>
+                <ul>
+                    <li>Access the personal information we hold about you</li>
+                    <li>Request correction of inaccurate information</li>
+                    <li>Request deletion of your personal information</li>
+                    <li>Object to or restrict certain processing activities</li>
+                    <li>Withdraw consent at any time</li>
+                </ul>
+            </div>
+            
+            <div class="content-box">
+                <h2>Contact Us</h2>
+                <p>If you have any questions about this Privacy Policy, please contact us:</p>
+                <p><strong>SANKESH ANIL NAGRARE</strong><br>
+                Phone: +91 8329971463<br>
+                Email: sankeshnagrare92@gmail.com<br>
+                Address: K Narayapura, Hennur Road, Kothanur, Bengaluru - 560077</p>
+            </div>
+            
+            <div class="content-box">
+                <h2>Policy Updates</h2>
+                <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "effective date" at the bottom of this policy.</p>
+                <p><em>Effective Date: January 21, 2023</em></p>
+            </div>
+            
+            <a href="#home" class="btn" style="margin-top: 20px;">Back to Home</a>
+        </div>
+    </div>
+
+    <!-- Terms and Conditions Page (Hidden by default) -->
+    <div id="termsPage" class="page-content" style="display: none;">
+        <div class="container">
+            <h1>Terms and Conditions</h1>
+            <div class="content-box">
+                <h2>1. Acceptance of Terms</h2>
+                <p>By accessing and using this website, you accept and agree to be bound by the terms and conditions set forth in this agreement. If you do not agree to these terms, please do not use this website.</p>
+            </div>
+            
+            <div class="content-box">
+                <h2>2. Services Description</h2>
+                <p>SANKESH ANIL NAGRARE provides property advisory services including but not limited to:</p>
+                <ul>
+                    <li>Residential property advisory</li>
+                    <li>Commercial property advisory</li>
+                    <li>Real estate investment consultation</li>
+                    <li>Property valuation assistance</li>
+                    <li>Market analysis and insights</li>
+                </ul>
+                <p>These services are provided on a professional advisory basis and do not constitute legal or financial advice.</p>
+            </div>
+            
+            <div class="content-box">
+                <h2>3. Client Responsibilities</h2>
+                <p>As a client, you agree to:</p>
+                <ul>
+                    <li>Provide accurate and complete information about your property needs</li>
+                    <li>Make timely decisions regarding property transactions</li>
+                    <li>Cooperate with the property advisory process</li>
+                    <li>Verify all property details independently before making purchase decisions</li>
+                    <li>Comply with all applicable laws and regulations</li>
+                </ul>
+            </div>
+            
+            <div class="content-box">
+                <h2>4. Fees and Payments</h2>
+                <p>Consultation fees, if applicable, will be discussed and agreed upon before services are rendered. Some initial consultations may be offered free of charge. Any fees will be clearly communicated in advance.</p>
+            </div>
+            
+            <div class="content-box">
+                <h2>5. Limitation of Liability</h2>
+                <p>SANKESH ANIL NAGRARE shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from the use of or inability to use our services. While we strive to provide accurate information, we do not guarantee the accuracy, completeness, or reliability of any property information.</p>
+            </div>
+            
+            <div class="content-box">
+                <h2>6. Intellectual Property</h2>
+                <p>All content on this website, including text, graphics, logos, and images, is the property of SANKESH ANIL NAGRARE and is protected by copyright and other intellectual property laws.</p>
+            </div>
+            
+            <div class="content-box">
+                <h2>7. Governing Law</h2>
+                <p>These terms and conditions shall be governed by and construed in accordance with the laws of India. Any disputes shall be subject to the exclusive jurisdiction of the courts in Bengaluru, Karnataka.</p>
+            </div>
+            
+            <div class="content-box">
+                <h2>8. Modifications to Terms</h2>
+                <p>We reserve the right to modify these terms and conditions at any time. Changes will be effective immediately upon posting on the website. Your continued use of the website constitutes acceptance of the modified terms.</p>
+            </div>
+            
+            <div class="content-box">
+                <h2>9. Contact Information</h2>
+                <p>For any questions regarding these Terms and Conditions, please contact:</p>
+                <p><strong>SANKESH ANIL NAGRARE</strong><br>
+                Phone: +91 8329971463<br>
+                Email: sankeshnagrare92@gmail.com<br>
+                Address: K Narayapura, Hennur Road, Kothanur, Bengaluru - 560077</p>
+            </div>
+            
+            <a href="#home" class="btn" style="margin-top: 20px;">Back to Home</a>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            mobileMenuBtn.innerHTML = mainNav.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                // Don't apply smooth scrolling for privacy/terms links
+                if(this.getAttribute('href').includes('.html')) return;
+                
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                
+                // Hide any open policy/terms pages
+                document.getElementById('privacyPage').style.display = 'none';
+                document.getElementById('termsPage').style.display = 'none';
+                
+                if(targetId === '#home') {
+                    window.scrollTo({top: 0, behavior: 'smooth'});
+                } else {
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+                
+                // Update active class
+                document.querySelectorAll('nav a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                // Close mobile menu if open
+                if(mainNav.classList.contains('active')) {
+                    mainNav.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+        });
+        
+        // Privacy Policy and Terms Page Navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check URL for page parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            const page = urlParams.get('page');
+            
+            if(page === 'privacy') {
+                showPrivacyPage();
+            } else if(page === 'terms') {
+                showTermsPage();
+            }
+            
+            // Add click handlers for privacy/terms links
+            document.querySelectorAll('a[href="privacy-policy.html"]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showPrivacyPage();
+                });
+            });
+            
+            document.querySelectorAll('a[href="terms.html"]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showTermsPage();
+                });
+            });
+        });
+        
+        function showPrivacyPage() {
+            document.querySelector('main').style.display = 'none';
+            document.querySelector('footer').style.display = 'none';
+            document.getElementById('privacyPage').style.display = 'block';
+            window.scrollTo({top: 0, behavior: 'smooth'});
+            
+            // Update active class
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+            });
+        }
+        
+        function showTermsPage() {
+            document.querySelector('main').style.display = 'none';
+            document.querySelector('footer').style.display = 'none';
+            document.getElementById('termsPage').style.display = 'block';
+            window.scrollTo({top: 0, behavior: 'smooth'});
+            
+            // Update active class
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+            });
+        }
+        
+        // Back to Home functionality
+        document.querySelectorAll('.btn[href="#home"]').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector('main').style.display = 'block';
+                document.querySelector('footer').style.display = 'block';
+                document.getElementById('privacyPage').style.display = 'none';
+                document.getElementById('termsPage').style.display = 'none';
+                window.scrollTo({top: 0, behavior: 'smooth'});
+                
+                // Update active class
+                document.querySelectorAll('nav a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                document.querySelector('nav a[href="#home"]').classList.add('active');
+            });
+        });
+        
+        // Contact Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = this.querySelector('input[type="text"]').value;
+            const phone = this.querySelector('input[type="tel"]').value;
+            const email = this.querySelector('input[type="email"]').value;
+            const service = this.querySelector('select').value;
+            const message = this.querySelector('textarea').value;
+            
+            // In a real implementation, you would send this data to a server
+            // For this example, we'll just show an alert
+            alert(`Thank you ${name}! Your inquiry has been received. I will contact you at ${phone} or ${email} within 24 hours.`);
+            
+            // Reset form
+            this.reset();
+        });
+        
+        // Logo placeholder - in a real implementation, you would replace this with your actual logo
+        document.addEventListener('DOMContentLoaded', function() {
+            const logoPlaceholder = document.querySelector('.logo-placeholder');
+            // This is where you would add your actual logo image
+            // logoPlaceholder.innerHTML = '<img src="your-logo.jpg" alt="SANKESH ANIL NAGRARE Logo">';
+        });
+    </script>
+</body>
+</html>
